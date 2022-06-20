@@ -1,10 +1,11 @@
 import { DataSource } from "typeorm";
 
-export default new DataSource({
+export const connection = new DataSource({
   type: "postgres",
   host: "localhost",
   port: 5432,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  username: process.env.DB_USER || "admin",
+  password: process.env.DB_PASSWORD || "docker",
+  database: process.env.DB_NAME || "fiocruz",
+  migrations: ["src/services/database/Migrations"],
 });

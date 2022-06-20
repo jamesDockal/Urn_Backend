@@ -1,6 +1,6 @@
 import express from "express";
 
-import db from "./services/database/typeorm.connection";
+import { connection } from "./services/database/typeorm.connection";
 
 const app = express();
 
